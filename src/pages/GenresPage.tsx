@@ -1,23 +1,24 @@
-import {useEffect, useState} from "react";
-import {Outlet} from "react-router-dom";
+import {useEffect} from "react";
+import {Outlet, useSearchParams} from "react-router-dom";
 
-import {genresService} from "../services";
+
 import {Genres} from "../components";
-import {IGenre} from "../interfaces";
+import {useAppDispatch} from "../hooks";
+import {moviesActions} from "../store";
 
 const GenresPage = () => {
 
-        const [genres, setGenres] = useState<IGenre[]>([])
+        const dispatch = useAppDispatch();
+        const [query] = useSearchParams({page: "1"})
+        const page = query.get("page") ? query.get("page") : "1"
 
         useEffect(() => {
-                genresService.getAll().then(({data}) =>{
-                        setGenres(data.genres)
-                })
-        }, [])
+                dispatch(moviesActions.getGenres())
+        }, [dispatch, page])
 
         return (
         <div>
-                <Genres genres={genres}/>
+                <Genres/>
                 <Outlet/>
         </div>
         );

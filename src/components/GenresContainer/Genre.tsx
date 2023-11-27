@@ -10,11 +10,11 @@ interface IProps {
 }
 const Genre:FC<IProps> = ({genre, setChosenGenre}) => {
 
-    const {id, name} = genre;
+    const {id: genreId, name} = genre;
     const navigate = useNavigate();
 
     function searchGenre() {
-        navigate(`${id}`)
+        navigate(`${genreId}`)
         setChosenGenre(name)
     }
 

@@ -1,29 +1,26 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useSearchParams} from "react-router-dom";
 
-import {movieService} from "../services";
-import {IMovieInfo} from "../interfaces";
 import {Movies} from "../components";
+import {useAppDispatch, useAppSelector} from "../hooks";
+import {moviesActions} from "../store";
 
 
 const MoviesPage = () => {
 
-    const [movies, setMovies] = useState<IMovieInfo[]>([]);
-
-
     const [query, setQuery] = useSearchParams({page: "1"})
     const page = query.get("page") ? query.get("page") : "1"
-    const [pageMax] = useState<number>(500)
+    const dispatch = useAppDispatch();
+
+
 
     useEffect(() => {
-        movieService.getAll(`${query.get("page")}`).then(({data}) => {
-            setMovies(data.results)
-        })
-    }, [query])
+        dispatch(moviesActions.getAllMovies({page}))
+    }, [page, dispatch])
 
     return (
         <div className={"MoviesPage"} >
-            <Movies movies={movies} page={page} setQuery={setQuery} pageMax={pageMax}/>
+            <Movies page={page} setQuery={setQuery}/>
         </div>
     );
 };

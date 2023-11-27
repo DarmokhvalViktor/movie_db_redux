@@ -1,13 +1,11 @@
-import {FC} from "react";
-
 import {Actor} from "./Actor";
-import {IActor} from "../../../interfaces";
 import css from "./Actors.module.css"
+import {useAppSelector} from "../../../hooks";
 
-interface IProps {
-    actors: IActor[]
-}
-const Actors: FC<IProps> = ({actors}) => {
+const Actors = () => {
+
+    const {actors} = useAppSelector(state => state.movies)
+
     return (
         <div>
             <h1>Actors:</h1>

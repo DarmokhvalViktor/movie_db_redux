@@ -1,13 +1,14 @@
-import {FC, useEffect, useState} from "react";
+import {FC, useEffect} from "react";
 import {Rating} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 
 import css from "./MovieInfo.module.css"
 import "./MovieInfo.module.css"
-import {IActor, IMovieInfo} from "../../interfaces";
+import {IMovieInfo} from "../../interfaces";
 import gif from "../Header/image/pulp-fiction-john-travolta.gif"
-import {actorsService} from "../../services";
 import {Actors} from "./Actors";
+import {useAppDispatch} from "../../hooks";
+import {moviesActions} from "../../store";
 
 interface IProps {
     movie: IMovieInfo
@@ -26,13 +27,11 @@ const MovieInfo: FC<IProps> = ({movie}) => {
         navigate(`/genres/${id}`)
     }
 
-    const [actors, setActors] = useState<IActor[]>()
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
-        actorsService.getAll(id).then(({data}) => {
-            setActors(data.cast)
-        })
-    }, [id])
+        dispatch(moviesActions.getActors({id}))
+    }, [id, dispatch])
 
     return (
         <div>
@@ -62,7 +61,7 @@ const MovieInfo: FC<IProps> = ({movie}) => {
                 </div>
 
             </div>
-            <Actors actors={actors}/>
+            <Actors/>
         </div>
 
 

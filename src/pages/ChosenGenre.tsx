@@ -1,38 +1,26 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {useParams, useSearchParams} from "react-router-dom";
 
-import {movieService} from "../services";
-import {IMovieInfo} from "../interfaces";
 import {Movies} from "../components";
+import {useAppDispatch} from "../hooks";
+import {moviesActions} from "../store";
 
 const ChosenGenre = () => {
 
-    const {genre} = useParams<string>();
+    const {genreId:genre} = useParams<string>();
 
-    const [pageMax, setPageMax] = useState<number>(null)
-    const [movies, setMovies] = useState<IMovieInfo[]>([]);
     const [query, setQuery] = useSearchParams({page: "1"})
     const page = query.get("page") ? query.get("page") : "1"
+    const dispatch = useAppDispatch();
 
 
     useEffect(() => {
-        if(genre === "") {
-            movieService.getAll().then(({data}) => {
-                setPageMax(data.total_pages)
-                setMovies(data.results)
-            })
-        } else {
-            movieService.getByGenre(genre, page).then(({data}) => {
-                setPageMax(data.total_pages)
-                setMovies(data.results)
-            })
-        }
-
-    }, [page, genre])
+        dispatch(moviesActions.getMoviesByGenre({genre, page}))
+    }, [page, genre, dispatch])
 
     return (
         <div>
-            <Movies movies={movies} page={page} setQuery={setQuery} pageMax={pageMax}/>
+            <Movies page={page} setQuery={setQuery}/>
         </div>
     );
 };
