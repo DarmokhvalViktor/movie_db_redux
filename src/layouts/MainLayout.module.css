@@ -1,0 +1,24 @@
+.MainLayout {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.dark {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    color: white;
+}
+.Loader{
+    height: 5px;
+    background: #3c0352;
+    margin-top: 150px;
+    margin-bottom: -150px;
+}
+.Progress {
+    margin-top: 150px;
+    margin-bottom: -150px;
+}

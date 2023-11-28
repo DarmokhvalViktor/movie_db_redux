@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, isFulfilled, isPending, isRejected} from "@reduxjs/toolkit";
 import {AxiosError} from "axios";
 
 import {Genres, IActor, IGenre, IMovieData, IMovieInfo} from "../../interfaces";
@@ -122,27 +122,29 @@ const moviesSlice = createSlice({
         builder
             .addCase(getMovieById.fulfilled, (state, action) => {
                 state.chosenMovie = action.payload;
-            })
-            .addCase(getAllMovies.fulfilled, (state, action) => {
-                state.movies = action.payload.results;
-                state.maxPages = action.payload.total_pages > 500 ? 500 : action.payload.total_pages;
-                state.chosenMovie = null;
-            })
-            .addCase(getMoviesByGenre.fulfilled, (state, action) => {
-                state.movies = action.payload.results;
-                state.maxPages = action.payload.total_pages > 500 ? 500 : action.payload.total_pages;
-                state.chosenMovie = null;
-            })
-            .addCase(getMoviesByKeyword.fulfilled, (state, action) => {
-                state.movies = action.payload.results;
-                state.maxPages = action.payload.total_pages > 500 ? 500 : action.payload.total_pages;
-                state.chosenMovie = null;
+                state.isLoading = false;
             })
             .addCase(getGenres.fulfilled, (state, action) => {
                 state.genres = action.payload.genres
             })
             .addCase(getActors.fulfilled, (state, action) => {
                 state.actors = action.payload;
+            })
+            .addMatcher(isFulfilled(getAllMovies, getMoviesByGenre, getMoviesByKeyword), (state, action) => {
+                state.movies = action.payload.results;
+                state.maxPages = action.payload.total_pages > 500 ? 500 : action.payload.total_pages;
+                state.chosenMovie = null;
+                state.error = false;
+                state.isLoading = false;
+            })
+            .addMatcher(isRejected(getMoviesByGenre, getMoviesByKeyword, getMovieById,
+                getAllMovies, getGenres, getActors), (state) => {
+                state.error = true;
+                state.isLoading = false;
+            })
+            .addMatcher(isPending(getMoviesByGenre, getMoviesByKeyword, getMovieById,
+                getAllMovies, getGenres, getActors), (state) => {
+                state.isLoading = true;
             })
 })
 
