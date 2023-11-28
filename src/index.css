@@ -9,14 +9,7 @@ body {
     color: white;
 }
 
-.genre {
-    border: 2px solid darkblue;
-    border-radius: 15px;
-    width: 150px;
-    margin: 5px;
-    padding: 10px;
-    background-color: lightcyan;
-}
+
 
 img {
     box-shadow: 5px 5px 5px 5px darkslategray;
@@ -52,19 +45,7 @@ img {
     box-shadow: 5px 5px 5px skyblue;
 }
 
-.dark .genre {
-    border: 2px solid darkblue;
-    border-radius: 15px;
-    width: 150px;
-    margin: 5px;
-    padding: 10px;
-    background-color: seagreen;
-    box-shadow: 5px 5px 5px skyblue;
-}
-.dark .genre:hover {
-    scale: 1.1;
-    background-color: rebeccapurple;
-}
+
 
 * {
     box-sizing: border-box;

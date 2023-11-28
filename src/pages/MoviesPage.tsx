@@ -2,7 +2,7 @@ import {useEffect} from "react";
 import {useSearchParams} from "react-router-dom";
 
 import {Movies} from "../components";
-import {useAppDispatch, useAppSelector} from "../hooks";
+import {useAppDispatch} from "../hooks";
 import {moviesActions} from "../store";
 
 

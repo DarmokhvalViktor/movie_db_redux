@@ -11,7 +11,7 @@ const MainLayout = () => {
     return (
             <div>
                 <Header/>
-                {!isLoading ? <div className={css.Loader}></div> : <LinearProgress color={"info"}className={css.Progress}/>}
+                {!isLoading ? <div className={css.Loader}></div> : <LinearProgress color={"info"} className={css.Progress}/>}
 
                 <Outlet />
             </div>

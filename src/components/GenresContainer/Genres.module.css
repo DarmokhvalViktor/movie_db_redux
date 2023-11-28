@@ -1,8 +1,16 @@
-.Genres {
+.Light {
     display: flex;
     flex-wrap: wrap;
     margin-top: 150px;
     margin-bottom: -120px;
+}
+.Dark {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: darkslategray;
+    margin-top: 150px;
+    margin-bottom: -120px;
+    color: white;
 }
 .ChosenGenre {
     margin-top: 150px;

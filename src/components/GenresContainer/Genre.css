@@ -1,0 +1,41 @@
+.LightGenre {
+    border: 2px solid darkblue;
+    border-radius: 15px;
+    width: 150px;
+    margin: 5px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px darkslategray;
+    cursor: pointer;
+    transition: 0.5s;
+    text-align: center;
+}
+.LightGenre:hover {
+    scale: 1.1;
+    background-color: mediumvioletred;
+}
+
+/*.genre {*/
+/*    border: 2px solid darkblue;*/
+/*    border-radius: 15px;*/
+/*    width: 150px;*/
+/*    margin: 5px;*/
+/*    padding: 10px;*/
+/*    background-color: lightcyan;*/
+/*}*/
+
+.DarkGenre{
+    border: 2px solid darkblue;
+    border-radius: 15px;
+    width: 150px;
+    margin: 5px;
+    padding: 10px;
+    background-color: seagreen;
+    box-shadow: 5px 5px 5px skyblue;
+    cursor: pointer;
+    transition: 0.5s;
+    text-align: center;
+}
+.DarkGenre:hover {
+    scale: 1.1;
+    background-color: rebeccapurple;
+}

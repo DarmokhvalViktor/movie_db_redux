@@ -2,7 +2,7 @@ import {useEffect} from "react";
 import {useParams, useSearchParams} from "react-router-dom";
 
 import {Movies} from "../components";
-import {useAppDispatch} from "../hooks";
+import {useAppDispatch, useAppSelector} from "../hooks";
 import {moviesActions} from "../store";
 
 const ChosenGenre = () => {
