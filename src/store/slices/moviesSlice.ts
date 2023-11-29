@@ -121,9 +121,7 @@ const moviesSlice = createSlice({
         builder
             .addCase(getMovieById.fulfilled, (state, action) => {
                 state.chosenMovie = action.payload;
-                console.log(state.isLoading)
                 state.isLoading = false;
-                console.log(state.isLoading)
             })
             .addCase(getGenres.fulfilled, (state, action) => {
                 state.genres = action.payload.genres
