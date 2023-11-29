@@ -1,5 +1,6 @@
 .LightGenre {
     border: 2px solid darkblue;
+    background-color: mediumaquamarine;
     border-radius: 15px;
     width: 150px;
     margin: 5px;
@@ -14,22 +15,13 @@
     background-color: mediumvioletred;
 }
 
-/*.genre {*/
-/*    border: 2px solid darkblue;*/
-/*    border-radius: 15px;*/
-/*    width: 150px;*/
-/*    margin: 5px;*/
-/*    padding: 10px;*/
-/*    background-color: lightcyan;*/
-/*}*/
-
 .DarkGenre{
     border: 2px solid darkblue;
     border-radius: 15px;
     width: 150px;
     margin: 5px;
     padding: 10px;
-    background-color: seagreen;
+    background-color: darkgoldenrod;
     box-shadow: 5px 5px 5px skyblue;
     cursor: pointer;
     transition: 0.5s;

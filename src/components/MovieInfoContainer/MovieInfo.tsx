@@ -7,7 +7,7 @@ import "./MovieInfo.module.css"
 import {IMovieInfo} from "../../interfaces";
 import gif from "../Header/image/pulp-fiction-john-travolta.gif"
 import {Actors} from "./Actors";
-import {useAppDispatch} from "../../hooks";
+import {useAppDispatch, useAppSelector} from "../../hooks";
 import {moviesActions} from "../../store";
 
 interface IProps {
@@ -33,31 +33,34 @@ const MovieInfo: FC<IProps> = ({movie}) => {
         dispatch(moviesActions.getActors({id}))
     }, [id, dispatch])
 
+    const {theme} = useAppSelector(state => state.theme)
+
     return (
         <div>
-            <div className={css.MovieInfo} id={"movieInfoContainer"}>
+            <div className={theme ? css.DarkMovieInfo : css.MovieInfo} id={"movieInfoContainer"}>
                 {poster_path ? <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={title}/> :
                     <img src={gif} alt={"no poster"}/>}
 
-                <div className={css.wrapBlock} id={"wrapBlock"}>
-                    {adult ? <div>adult: {adult}</div> : ""}
-                    <div>{title}</div>
-                    {genres.length ? <div className={css.genresBlock}>
+
+                <div className={theme ? css.DarkWrapBlock : css.wrapBlock} id={"wrapBlock"}>
+                    {adult && <div>adult: {adult}</div>}
+                    {title && <div>{title}</div>}
+                    {genres.length ? <div className={theme ? css.DarkGenresBlock : css.genresBlock}>
                         {genres.map(genre => (
-                                <div className={css.genreInfo} id={"genreInfo"} key={genre.id}
+                                <div className={theme ? css.DarkGenreInfo : css.genreInfo} id={"genreInfo"} key={genre.id}
                                      onClick={() => goTo(`${genre.id}`)}>{genre.name}</div>
                             )
                         )}
                     </div> : ""}
-                    <div>Original Language: <br/> {original_language}</div>
-                    <div>{overview}</div>
-                    <div>Release Date: <br/> {release_date}</div>
-                    <div>
+                    {original_language && <div>Original Language: <br/> {original_language}</div>}
+                    {overview && <div>{overview}</div>}
+                    {release_date && <div>Release Date: <br/> {release_date}</div>}
+                    {vote_average && <div>
                         <Rating name="customized-10" defaultValue={vote_average} precision={0.1} max={10} readOnly/>
-                    </div>
-                    <div>Vote count: <br/> {vote_count}</div>
-                    <div>Runtime: <br/> {runtime} minutes</div>
-                    <div>Tagline: <br/> {tagline}</div>
+                    </div>}
+                    {vote_count && <div>Vote count: <br/> {vote_count}</div>}
+                    {runtime && <div>Runtime: <br/> {runtime} minutes</div>}
+                    {tagline && <div>Tagline: <br/> {tagline}</div>}
                 </div>
 
             </div>

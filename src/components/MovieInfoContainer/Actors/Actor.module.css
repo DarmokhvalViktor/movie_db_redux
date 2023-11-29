@@ -9,7 +9,33 @@
 .Actor img {
     width: 100px;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px darkslategray;
+    transition: 0.5s;
 }
 .ActorText {
+    margin: 20px 0 0 20px;
+}
+.Dark {
+    border-radius: 20px;
+    margin: 20px;
+    width: 300px;
+    display: flex;
+    color: white;
+}
+.Dark img {
+    width: 100px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px darkgoldenrod;
+    transition: 0.5s;
+}
+.Dark img:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+.Actor img:hover {
+    scale: 1.1;
+    cursor: pointer;
+}
+.DarkActorText {
     margin: 20px 0 0 20px;
 }

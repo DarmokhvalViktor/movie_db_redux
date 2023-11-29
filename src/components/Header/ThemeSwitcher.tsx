@@ -8,20 +8,18 @@ import {themeActions} from "../../store";
 export default function ControlledSwitches() {
 
     //calling custom hook to let app know when to re-render this component
-    useAppSelector(state => state.theme)
+    const {theme} = useAppSelector(state => state.theme)
 
-    const test = JSON.parse(localStorage.getItem("theme")) || false;
     const dispatch = useAppDispatch();
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        localStorage.setItem("theme", JSON.stringify(!test))
-        dispatch(themeActions.setTheme(!test))
+    const handleChange = () => {
+        dispatch(themeActions.setTheme(!theme))
     };
 
     return (
         <FormControlLabel
             control={<Switch
-                checked={test}
+                checked={theme}
                 onChange={handleChange}
                 color="primary"
                 inputProps={{'aria-label': 'controlled'}}

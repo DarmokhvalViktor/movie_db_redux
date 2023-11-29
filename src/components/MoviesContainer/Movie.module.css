@@ -1,4 +1,4 @@
-.Movie {
+.Movie, .DarkMovie {
     height: 450px;
     width: calc(20% - 5px);
     padding: 20px;
@@ -7,22 +7,30 @@
     text-align: center;
     font-size: 20px;
     cursor: pointer;
-    transition: 0.5s;
+    /*transition: 0.5s;*/
 }
-.Movie img {
+.Movie img, .DarkMovie img {
     width: 220px;
     height: 325px;
     border-radius: 15px;
     margin-bottom: 20px;
+    box-shadow: 5px 5px 5px 5px darkslategray;
     transition: 0.5s;
 }
-
-.Movie:hover {
-    scale: 1.1;
-    color: black;
+.DarkMovie img {
+    box-shadow: 5px 5px 5px 5px darkgoldenrod;
 }
 
-.Movie div {
+.Movie img:hover, .DarkMovie img:hover {
+    scale: 1.1;
+}
+
+.Movie div, .DarkMovie div {
     margin-bottom: 10px;
     border-radius: 15px;
 }
+.DarkMovie {
+    background-color: #3c0352;
+    color: white;
+}
+

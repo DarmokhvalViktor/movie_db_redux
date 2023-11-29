@@ -2,6 +2,7 @@ import {useForm} from "react-hook-form";
 import {useNavigate} from "react-router-dom";
 
 import css from "./SearchForm.module.css"
+import {useAppSelector} from "../../hooks";
 
 interface IKeyword {
     keyword: string
@@ -19,8 +20,9 @@ const SearchForm= () => {
         reset()
     }
 
+    const {theme} = useAppSelector(state => state.theme)
     return (
-        <form className={css.SearchForm} onSubmit={handleSubmit(search)}>
+        <form className={theme ? css.DarkSearchForm : css.SearchForm} onSubmit={handleSubmit(search)}>
             <input type={"text"} placeholder={"keyword"} {...register("keyword")}/>
             <button>Search</button>
         </form>

@@ -7,12 +7,12 @@ import css from "./MainLayout.module.css"
 
 const MainLayout = () => {
     const {isLoading} = useAppSelector(state => state.movies)
+    const {theme} = useAppSelector(state => state.theme)
 
     return (
             <div>
                 <Header/>
-                {!isLoading ? <div className={css.Loader}></div> : <LinearProgress color={"info"} className={css.Progress}/>}
-
+                {!isLoading ? <div className={theme ? css.DarkLoader : css.Loader}></div> : <LinearProgress color={"info"} className={css.Progress}/>}
                 <Outlet />
             </div>
     );

@@ -105,7 +105,6 @@ const getActors = createAsyncThunk<IActor[], {id:number}>(
     async({id}, {rejectWithValue}) => {
         try {
             const {data} = await actorsService.getAll(id);
-            console.log(data.cast)
             return data.cast
         } catch (e) {
             const error = e as AxiosError;
@@ -122,7 +121,9 @@ const moviesSlice = createSlice({
         builder
             .addCase(getMovieById.fulfilled, (state, action) => {
                 state.chosenMovie = action.payload;
+                console.log(state.isLoading)
                 state.isLoading = false;
+                console.log(state.isLoading)
             })
             .addCase(getGenres.fulfilled, (state, action) => {
                 state.genres = action.payload.genres
@@ -143,7 +144,7 @@ const moviesSlice = createSlice({
                 state.isLoading = false;
             })
             .addMatcher(isPending(getMoviesByGenre, getMoviesByKeyword, getMovieById,
-                getAllMovies, getGenres, getActors), (state) => {
+                getAllMovies, getGenres), (state) => {
                 state.isLoading = true;
             })
 })

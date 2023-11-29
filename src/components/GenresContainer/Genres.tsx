@@ -13,15 +13,14 @@ const Genres = () => {
     const {genres} = useAppSelector(state => state.movies);
 
     const {theme} = useAppSelector(state => state.theme)
-    const themeFromLocal = JSON.parse(localStorage.getItem("theme"))
 
     return (
         <div>
         {/*TODO change appearance*/}
-        <div className={(theme || themeFromLocal) ? css.Dark : css.Light}>
+        <div className={theme ? css.Dark : css.Light}>
             {genres&& genres.map(genre => <Genre key={genre.id} genre={genre} setChosenGenre={setChosenGenre}/>)}
         </div>
-            {chosenGenre && <h1 className={"ChosenGenre"}>Chosen genre: {chosenGenre} </h1>}
+            {chosenGenre && <h1 className={theme ? css.DarkChosenGenre : css.ChosenGenre}>Chosen genre: {chosenGenre} </h1>}
         </div>
     );
 };

@@ -1,9 +1,10 @@
 import {NavLink} from "react-router-dom";
 
+// import css from "./Header.module.css"
 import css from "./Header.module.css"
-import "./Header.module.css"
 import gif from "./image/sticker.gif"
 import ControlledSwitches from "./ThemeSwitcher";
+import {useAppSelector} from "../../hooks";
 
 const Header = () => {
 
@@ -11,8 +12,9 @@ const Header = () => {
         window.open(`https://www.youtube.com/watch?v=dQw4w9WgXcQ`)
     }
 
+    const {theme} = useAppSelector(state => state.theme)
     return (
-        <div className={css.Header}>
+        <div className={(theme) ? css.Dark : css.Header}>
 
             <h2 className={css.Title}>The Movie App</h2>
 

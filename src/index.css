@@ -3,50 +3,6 @@ body {
     padding: 0;
     background-color: wheat;
 }
-
-.dark {
-    background-color: black;
-    color: white;
-}
-
-
-
-img {
-    box-shadow: 5px 5px 5px 5px darkslategray;
-}
-
-.dark img {
-    box-shadow: 5px 5px 5px 5px goldenrod;
-}
-.dark button {
-    box-shadow: 5px 5px 10px 5px lightseagreen;
-}
-.dark #pageCounter {
-    background-color: lightslategray;
-    box-shadow: 3px 2px 2px lightblue;
-}
-.dark #starRating {
-    background-color: white;
-    box-shadow: 5px 5px 5px goldenrod;
-}
-.dark #movieTitle {
-    background-color: lightslategray;
-    box-shadow: 5px 5px 5px goldenrod;
-}
-.dark #Steve img {
-    box-shadow: none;
-}
-.dark #movieInfoContainer #wrapBlock div {
-    background-color: grey;
-    box-shadow: 5px 5px 5px darkgoldenrod;
-}
-.dark #movieInfoContainer #wrapBlock #genreInfo {
-    background-color: seagreen;
-    box-shadow: 5px 5px 5px skyblue;
-}
-
-
-
 * {
     box-sizing: border-box;
 }

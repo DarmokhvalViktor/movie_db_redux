@@ -2,7 +2,7 @@ import {FC} from "react";
 import {useNavigate} from "react-router-dom";
 
 import {IGenre} from "../../interfaces";
-import "./Genre.css"
+import css from "./Genre.module.css"
 import {useAppSelector} from "../../hooks";
 
 interface IProps {
@@ -16,9 +16,7 @@ const Genre: FC<IProps> = ({genre, setChosenGenre}) => {
     const navigate = useNavigate();
 
 
-    // const [state, setState] = useState(false);
     const {theme} = useAppSelector(state => state.theme)
-    const themeFromLocal = localStorage.getItem("theme")
 
     function searchGenre() {
         navigate(`${genreId}`)
@@ -26,7 +24,7 @@ const Genre: FC<IProps> = ({genre, setChosenGenre}) => {
     }
 
     return (
-        <div className={(theme && themeFromLocal) ? "DarkGenre" : "LightGenre"} onClick={searchGenre}>
+        <div className={(theme) ? css.DarkGenre : css.LightGenre} onClick={searchGenre}>
             <div>{name}</div>
         </div>
     );

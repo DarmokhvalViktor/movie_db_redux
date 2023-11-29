@@ -6,15 +6,21 @@
     flex-direction: column;
 }
 
-.dark {
-    width: 100%;
-    height: 100vh;
-    background-color: black;
-    color: white;
-}
+/*.dark {*/
+/*    width: 100%;*/
+/*    height: 100vh;*/
+/*    background-color: black;*/
+/*    color: white;*/
+/*}*/
 .Loader{
     height: 5px;
     background: #3c0352;
+    margin-top: 150px;
+    margin-bottom: -150px;
+}
+.DarkLoader {
+    height: 5px;
+    background: black;
     margin-top: 150px;
     margin-bottom: -150px;
 }

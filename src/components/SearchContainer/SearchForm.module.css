@@ -1,21 +1,23 @@
-.SearchForm {
+.SearchForm, .DarkSearchForm {
     margin-top: 150px;
-    margin-bottom: -120px;
-    background-color: rebeccapurple;
+    margin-bottom: -150px;
+    background-color: #3c0352;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
 }
-.SearchForm button {
+.SearchForm button, .DarkSearchForm button {
     cursor: pointer;
     transition: 0.5s;
-    box-shadow: none !important;
 }
-.SearchForm input {
+.SearchForm input, .DarkSearchForm input {
     height: 30px;
     width: 300px;
     border-radius: 10px;
     padding-left: 10px;
     margin-right: 10px;
+}
+.DarkSearchForm {
+    background-color: black;
 }

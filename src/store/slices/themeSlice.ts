@@ -5,7 +5,7 @@ interface IState {
 }
 
 const initialState:IState = {
-    theme: null,
+    theme: JSON.parse(localStorage.getItem("theme")) || false
 }
 
 const themeSlice = createSlice({
@@ -14,6 +14,7 @@ const themeSlice = createSlice({
     reducers:{
         setTheme: (state, action) => {
             state.theme = action.payload
+            localStorage.setItem("theme", JSON.stringify(action.payload))
         }
     }
 })

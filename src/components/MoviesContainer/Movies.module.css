@@ -3,11 +3,12 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    margin-top: 150px;
+    padding-top: -50px;
 }
 .Buttons {
-    margin-top: 155px;
     display: flex;
-    /*justify-content: space-between;*/
+    padding-bottom: 15px;
 }
 .Buttons button {
     width: 150px;
@@ -19,7 +20,6 @@
     background-color: goldenrod;
     box-shadow: 5px 5px 5px darkslategray;
 }
-
 button:hover {
     scale: 1.1;
     background-color: darkgoldenrod;
@@ -32,4 +32,46 @@ button:hover {
     background-color: steelblue;
     color: black;
     box-shadow: 1px 1px 1px darkslategray;
+}
+
+.DarkMovies {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 150px;
+    padding-top: -50px;
+    background-color: #3c0352;
+}
+
+.DarkButtons {
+    background-color: #3c0352;
+    display: flex;
+    padding-bottom: 15px;
+}
+.DarkButtons button {
+    width: 150px;
+    border: 1px solid rebeccapurple;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
+    margin: 0 10px;
+    background-color: mediumturquoise;
+    box-shadow: 5px 5px 5px darkgoldenrod;
+}
+.DarkButtons button:hover {
+    scale: 1.1;
+    background-color: rebeccapurple;
+    color: lightyellow;
+}
+.DarkButtons div {
+    border: 1px solid rebeccapurple;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: steelblue;
+    color: black;
+    box-shadow: 1px 1px 1px darkgoldenrod;
+}
+a {
+    text-decoration: none;
 }

@@ -1,5 +1,5 @@
 .MovieInfo {
-    margin-top: 160px;
+    margin-top: 150px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -10,6 +10,7 @@
     border-radius: 15px;
     margin-right: 40px;
     display: block;
+    box-shadow: 5px 5px 5px 5px darkslategray;
 }
 .wrapBlock {
     border: none !important;
@@ -21,11 +22,6 @@
     flex-wrap: wrap;
     justify-content: center;
 }
-
-.active {
-    color: darkred;
-}
-
 .genreInfo {
     display: flex;
     justify-content: center;
@@ -41,8 +37,7 @@
     scale: 1.1;
     background-color: mediumvioletred !important;
 }
-
-.MovieInfo div {
+.wrapBlock div {
     width: 400px;
     padding: 10px 5px 10px 15px;
     text-align: center;
@@ -52,3 +47,56 @@
     box-shadow: 5px 5px 5px darkslategray;
 }
 
+
+.DarkMovieInfo {
+    margin-top: 150px;
+    background-color: #3c0352;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.DarkMovieInfo img {
+    height: 500px;
+    border-radius: 15px;
+    margin-right: 40px;
+    display: block;
+    box-shadow: 5px 5px 5px 5px darkgoldenrod;
+}
+.DarkWrapBlock {
+    border: none !important;
+    box-shadow: none !important;
+}
+.DarkGenresBlock {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.DarkGenreInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px !important;
+    text-align: center;
+    padding: 5px !important;
+    background-color: lightseagreen !important;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.DarkGenreInfo:hover {
+    scale: 1.1;
+    background-color: mediumvioletred !important;
+}
+
+.DarkWrapBlock div {
+    width: 400px;
+    padding: 10px 5px 10px 15px;
+    background-color: lightslategrey;
+    text-align: center;
+    border: 2px solid rebeccapurple;
+    color: white;
+    border-radius: 20px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px darkgoldenrod;
+}
