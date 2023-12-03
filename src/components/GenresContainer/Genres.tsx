@@ -7,7 +7,6 @@ import {useAppSelector} from "../../hooks";
 
 const Genres = () => {
 
-    //This useState sees if user click on genre, and display name of genre afterwards
     const [chosenGenre, setChosenGenre] = useState<string>(null)
 
     const {genres} = useAppSelector(state => state.movies);
@@ -16,7 +15,6 @@ const Genres = () => {
 
     return (
         <div>
-        {/*TODO change appearance*/}
         <div className={theme ? css.Dark : css.Light}>
             {genres&& genres.map(genre => <Genre key={genre.id} genre={genre} setChosenGenre={setChosenGenre}/>)}
         </div>

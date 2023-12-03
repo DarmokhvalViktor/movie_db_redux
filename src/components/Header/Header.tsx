@@ -1,6 +1,5 @@
 import {NavLink} from "react-router-dom";
 
-// import css from "./Header.module.css"
 import css from "./Header.module.css"
 import gif from "./image/sticker.gif"
 import ControlledSwitches from "./ThemeSwitcher";
@@ -13,6 +12,7 @@ const Header = () => {
     }
 
     const {theme} = useAppSelector(state => state.theme)
+
     return (
         <div className={(theme) ? css.Dark : css.Header}>
 

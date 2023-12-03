@@ -7,7 +7,6 @@ import {themeActions} from "../../store";
 
 export default function ControlledSwitches() {
 
-    //calling custom hook to let app know when to re-render this component
     const {theme} = useAppSelector(state => state.theme)
 
     const dispatch = useAppDispatch();
